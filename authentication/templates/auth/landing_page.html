@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Enrollment</title>
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <nav>
+        <div id="logo">
+            <a href="">
+                <img src="{% static 'image/kamatis_logo.jpeg' %}" alt="">
+                <p>Kamatis University</p>
+            </a>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <ul id="menu">
+            <li><a href="#section1">Home</a></li>
+            <li><a href="#section2">Abouts</a></li>
+            <li><a href="#section3">Contact</a></li>
+        </ul>
+
+ 
+        <div class="btn-signin">
+            <a href="{% url 'login' %}">Sign In</a>
+        </div>
+    </nav>
+    <script src="{% static 'js/nav.js' %}"></script>
+
+
+    <section class="section1" id="section1">
+        <div class="card1">
+            
+            <h1>Streamlined Enrollment for a  Education Experience.</h1>
+
+            <div id="btn">
+                <a href="{% url 'enroll' %}">Enroll Now</a>
+            </div>
+
+        </div>
+        <div class="card2" >
+            <img src="{% static 'image/stud.jpg' %}" alt="studying">
+        </div>
+    
+    </section>
+    <section id="section2">
+        <div class="card3">
+            <h1>About Our University</h1>
+            <div class="about-cont">
+                <p>Founded in the 1880s, <b>Kamatis University</b> has been at the forefront of education for over a century. With a commitment to academic excellence, innovation, and community engagement, we have shaped generations of leaders, 
+                    thinkers, and changemakers. Our campus blends rich tradition with modern facilities, offering students a vibrant learning environment where curiosity and creativity thrive. We take pride in fostering a culture of inclusivity,
+                     critical thinking, and lifelong learning. From pioneering research to hands-on community programs, <b>Kamatis University</b> continues to uphold its mission: empowering students to reach their fullest potential and make a meaningful impact in the world.
+
+                     Join us in continuing a legacy of excellence that has endured since the 1880s.</p>
+            </div>
+            
+
+        </div>
+        
+    </section>
+    <section id="section3">
+        <h1>Contact Us</h1>
+        <div class="card3">
+            <p>We’d love to hear from you! Whether you have questions about admissions, programs, or campus life, our team is here to help.</p>
+            <br>
+             <address class="contact-cont">
+                <p><strong>Address:</strong> 123 Kamatis University Rd, City, Kamatis Country</p>
+                <p><strong>Phone:</strong> <a href="tel:+639310690217">+639310690217</a></p>
+                <p><strong>Email:</strong> <a href="mailto:zerogold80000@gmail.com">info@universitykamatis.edu</a></p>
+
+                <p><strong>Office Hours:</strong><br>
+                Monday – Friday: 8:00 AM – 5:00 PM<br>
+                Saturday – Sunday: Closed</p>
+   
+            </address>
+            <p>You can also reach us through our online contact form or connect with us on social media. At University Name, your voice matters, and we’re committed to providing timely and helpful responses.</p>
+
+        </div>
+    </section>
+
+    <footer>
+        <footer class="footer">
+            <div class="footer-container">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/harry.amante.7" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <hr>
+            <p class="footer-bottom">© 2025 Kamatis University. All rights reserved</p>
+        </footer>
+
+    </footer>
+
+</body>
+</html>

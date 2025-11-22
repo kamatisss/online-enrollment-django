@@ -1,0 +1,134 @@
+
+{% extends 'student_list/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if messages %}
+    <div class="alerts-container">
+        <div class="alerts" role="status" aria-live="polite" aria-atomic="true">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }}">
+                <div class="alert-body">
+                    <strong class="alert-title">{{ message.tags|title }}</strong>
+                    <div class="alert-text">{{ message }}</div>
+                </div>
+                <button class="alert-close" aria-label="Dismiss message">&times;</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="dashboard">
+        <h1>List of Enrolled Students</h1>
+
+        <div class="cards">
+        {% for person in personal %}
+            <div class="card">   
+                <div>
+                    <h4>Personal Info:</h4>
+                    <p><strong>Name:</strong> {{ person.name }}</p>
+                    <p><strong>Gender:</strong> {{ person.gender }}</p>
+                    <p><strong>Age:</strong> {{ person.age }}</p>
+                    <p><strong>Address:</strong> {{ person.address }}</p>
+                    <p><strong>Email:</strong> {{ person.email }}</p>
+                </div>
+            
+                <div class="more-info" id="more-info-{{ person.id }}" >
+                    <h4>Education:</h4>
+                    <ul>
+                        {% for edu in person.education.all %}
+                            <li class="edu-item">
+                                <strong>Education Level:</strong> {{ edu.education_level }}<br>
+                                <br>
+                                <strong>School Name:</strong> {{ edu.school_name }}<br>
+                                <br>
+                                <strong>School Address:</strong> {{ edu.school_address }}<br>
+                                <br>
+                                <strong>Course:</strong> {{ edu.course }}<br>
+                                <br>
+                                <strong>Year:</strong>Year: {{ edu.year }}<br>
+
+                            </li>
+                        {% empty %}
+                            <li>No education records.</li>
+                        {% endfor %}
+                    </ul>
+                    <h4>Family:</h4>
+                    <ul>
+                        {% for fam in person.family.all %}
+                            <li class="edu-item">
+                                <strong>Education Level:</strong> {{ fam.father_name }}<br>
+                                <br>
+                                <strong>School Name:</strong> {{ fam.mother_name }}<br>
+                                <br>
+                                <strong>School Address:</strong> {{ fam.number_of_siblings }}<br>
+                                <br>
+                                <strong>Course:</strong> {{ fam.guardian_name }}<br>
+                                <br>
+                                <strong>Year:</strong>Year: {{ fam.guardian_contact }}<br>
+
+                            </li>
+                        {% empty %}
+                            <li>No Family records.</li>
+                        {% endfor %}
+                    </ul>
+                    <h4>Course:</h4>
+                    <ul>
+                        {% for crs in person.course.all %}
+                            <li class="edu-item">
+                                <strong>Education Level:</strong> {{ crs.course_id }}<br>
+                                <br>
+                                <strong>School Name:</strong> {{ crs.course_code }}<br>
+                                <br>
+                                <strong>School Address:</strong> {{ crs.course_name }}<br>
+                                <br>
+                                <strong>Course:</strong> {{ crs.department }}<br>
+                                <br>
+                                <strong>Year:</strong>Year: {{ crs.units }}<br>
+
+                            </li>
+                        {% empty %}
+                            <li>No Course records.</li>
+                        {% endfor %}
+                    </ul>
+                    <h4>Tuition:</h4>
+                    <ul>
+                        {% for tui in person.tuition.all %}
+                            <li class="edu-item">
+                                <strong>Education Level:</strong> {{ tui.payment_id }}<br>
+                                <br>
+                                <strong>School Name:</strong> {{ tui.payment_id }}<br>
+                                <br>
+                                <strong>School Address:</strong> {{ tui.payment_id }}<br>
+                                <br>
+                                <strong>Course:</strong> {{ tui.payment_id }}<br>
+                                <br>
+                                <strong>Year:</strong>Year: {{ tui.payment_id }}<br>
+
+                            </li>
+                        {% empty %}
+                            <li>No Tuition records.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <button class="toggle-btn" onclick="toggleMore({{ person.id }})">
+                    View More
+                </button>
+
+            </div>
+        {% endfor %}
+</div>
+
+    </div>
+
+    <a href="{% url 'logout_user' %}">Logout</a>
+    <script src="{% static 'js/message.js' %}"></script>
+    <script src="{% static 'js/seemore.js' %}"></script>
+    
+
+
+{% endblock %}
+
+
